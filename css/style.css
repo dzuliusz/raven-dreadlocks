@@ -474,20 +474,24 @@ table.price-grid tbody tr:hover td{ background: rgba(236,73,153,0.06); }
 
 /* ---------- galeria ---------- */
 .gallery-grid{
-  columns: 4 240px;
-  column-gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
 }
 .gallery-grid figure{
-  margin: 0 0 16px;
-  break-inside: avoid;
+  margin: 0;
+  aspect-ratio: 4 / 5;
   border-radius: var(--radius-md);
   overflow: hidden;
   position: relative;
   cursor: zoom-in;
   border: 1px solid var(--border);
 }
-.gallery-grid img{ width: 100%; display: block; transition: transform .5s ease; }
+.gallery-grid img{ width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease; }
 .gallery-grid figure:hover img{ transform: scale(1.05); }
+
+@media (max-width: 980px){ .gallery-grid{ grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px){ .gallery-grid{ grid-template-columns: repeat(2, 1fr); gap: 12px; } }
 .gallery-grid figure::after{
   content: '\2725';
   position: absolute; inset: 0;
@@ -495,6 +499,7 @@ table.price-grid tbody tr:hover td{ background: rgba(236,73,153,0.06); }
   font-size: 22px; color: #fff;
   background: rgba(139,58,168,0.0);
   opacity: 0; transition: all .3s ease;
+  pointer-events: none;
 }
 .gallery-grid figure:hover::after{ opacity: 1; background: rgba(60,15,90,0.35); }
 
