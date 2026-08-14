@@ -308,11 +308,24 @@ section{ position: relative; padding: 110px 0; }
 .hero-badge strong{ display: block; font-size: 14px; color: var(--text); }
 .hero-badge span{ font-size: 12.5px; color: var(--text-faint); }
 
+.hero-seal{
+  position: absolute;
+  top: 22px; right: -20px;
+  width: 96px; height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  transform: rotate(9deg);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 0 1px rgba(216, 178, 106, 0.35);
+  transition: transform .35s ease;
+}
+.hero-visual:hover .hero-seal{ transform: rotate(0deg) scale(1.04); }
+
 @media (max-width: 980px){
   .hero .container{ grid-template-columns: 1fr; }
   .hero-visual{ order: -1; max-width: 380px; margin: 0 auto; }
   .hero{ padding-top: 140px; }
   .hero-badge{ left: 50%; transform: translateX(-50%); bottom: -22px; }
+  .hero-seal{ width: 74px; height: 74px; top: 14px; right: -12px; }
 }
 
 /* ---------- trust strip ---------- */
@@ -356,11 +369,11 @@ section{ position: relative; padding: 110px 0; }
   padding: 22px;
 }
 .founder-card .avatar{
-  width: 72px; height: 72px;
+  width: 128px; height: 128px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1.5px solid rgba(216, 178, 106, 0.5);
-  margin-bottom: 16px;
+  border: 2px solid rgba(216, 178, 106, 0.5);
+  margin-bottom: 18px;
 }
 .founder-card h3{ font-size: 18px; color: var(--text); margin-bottom: 6px; }
 .founder-card .role{ font-size: 12.5px; color: var(--pink); text-transform: uppercase; letter-spacing: 0.14em; font-weight: 600; margin-bottom: 12px; display: block; }
